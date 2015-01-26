@@ -1,7 +1,14 @@
-$(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+$(document).ready(function () {
+    $('.active-links').click(function () {
+        $('#signin-dropdown').toggle();
+        $('#session').toggleClass('active');
+        return false;
+    });
+    $('#signin-dropdown').click(function(e) {
+        e.stopPropagation();
+    });
+    $(document).click(function() {
+        $('#signin-dropdown').hide();
+        $('#session').removeClass('active');
+    });
 });
