@@ -177,3 +177,8 @@ form.signin .remb .remember {
 .button:hover {
     background: #ddd;
 }
+
+#title_space {
+    padding: 4em;
+    text-align: center;
+}
