@@ -31,3 +31,9 @@ post '/users' do
   session[:user_id] = user.id
   redirect '/'
 end
+
+get '/treasures' do
+  treasure = Treasure.all
+  content_type :json
+  treasure.to_json
+end
