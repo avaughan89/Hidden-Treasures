@@ -245,3 +245,9 @@ form.signin .remb .remember {
     width: 10%;
     padding: 1%;
 }
+
+#map_canvas {
+    height: 500px;
+    border: 1px solid black;
+    top: 10em;
+}

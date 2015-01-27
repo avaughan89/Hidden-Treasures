@@ -1,10 +1,14 @@
 get '/' do
+  if current_user
+    erb :home
+  else
   erb :welcome
+  end
 end
 
 post '/login' do
   user = User.find_by(email: params[:email])
-  if user.authenticate(params[:password])
+  if user && user.password == params[:password]
     session[:user_id] = user.id
     redirect '/'
   else
@@ -13,13 +17,7 @@ post '/login' do
 
 end
 
-get '/signup' do
-  user = User.create(params[:user])
-  session[:user_id] = user.id
-  redirect '/'
-end
-
-get '/logout' do
+delete '/logout' do
 session[:user_id] = nil
   redirect '/'
 end
