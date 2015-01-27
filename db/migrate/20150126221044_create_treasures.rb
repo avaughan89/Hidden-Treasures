@@ -1,12 +1,10 @@
 class CreateTreasures < ActiveRecord::Migration
   def change
     create_table :treasures do |t|
-      t.string :name
-      t.string :address
-      t.string :description
-      t.float :lat
-      t.float :long
+      t.string :title
+      t.string :location
       t.belongs_to :user_id, index: true
+      t.timestamps
     end
   end
 end

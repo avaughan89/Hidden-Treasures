@@ -15,7 +15,18 @@ function initialize(location){
     });
     // google.maps.event.addListenerOnce(map,'bounds_changed', perfromSearch);
 
-}
+};
+
+var image = '../img/treasure_chest.png';
+function createMarker(title, lat, long){
+    var myLatLng = new google.maps.LatLng(lat, long);
+    var marker = new google.maps.Marker({
+        title: title,
+        position: myLatLng,
+        map: map,
+        icon: image
+    });
+};
 
 
 $(document).ready(function () {
