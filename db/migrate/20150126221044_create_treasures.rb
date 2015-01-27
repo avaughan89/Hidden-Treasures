@@ -6,6 +6,7 @@ class CreateTreasures < ActiveRecord::Migration
       t.string :description
       t.float :lat
       t.float :long
-      t.belongs_to :user_id
+      t.belongs_to :user_id, index: true
+    end
   end
 end
