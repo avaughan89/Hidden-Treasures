@@ -11,5 +11,4 @@ $(document).ready(function () {
         $('#signin-dropdown').hide();
         $('#session').removeClass('active');
     });
-
 });

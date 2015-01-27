@@ -23,3 +23,13 @@ get '/logout' do
 session[:user_id] = nil
   redirect '/'
 end
+
+get '/register' do
+  erb :register
+end
+
+post '/users' do
+  user = User.create(params[:user])
+  session[:user_id] = user.id
+  redirect '/'
+end
