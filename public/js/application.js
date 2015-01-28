@@ -1,5 +1,6 @@
 var map;
 
+
 function initialize(location){
 
     var currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude)
@@ -29,6 +30,29 @@ function createMarker(title, lat, long){
 };
 
 
+
+function userMarker(data) {
+    event.preventDefault();
+    console.log(data);
+    $.ajax({
+        url: '/treasures',
+        type: 'post',
+        data: data,
+        dataType: 'json'
+    }).success(function(data){
+        console.log(data)
+        var title = data.title;
+        var location = data.location.split(",");
+        var lat = location[0];
+        var long = location[1];
+        // console.log(title);
+        // console.log(lat);
+        // console.log(long);
+        createMarker(title,lat,long);
+    })
+};
+
+
 $(document).ready(function () {
     $('.active-links').click(function () {
         $('#signin-dropdown').toggle();
@@ -44,6 +68,10 @@ $(document).ready(function () {
     });
 
     navigator.geolocation.getCurrentPosition(initialize);
+    $(".new_treasure").on("submit", function(){
+        // event.preventDefault();
+    userMarker($(this).serialize());
+  });
 
 
 });

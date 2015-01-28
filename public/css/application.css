@@ -251,3 +251,21 @@ form.signin .remb .remember {
     border: 1px solid black;
     top: 10em;
 }
+
+#center_home {
+    top: 3em;
+}
+
+#new_marker {
+    list-style-type: none;
+}
+
+.creator_marker {
+
+}
+
+#left_form {
+    position: relative;
+    top: 10em;
+    text-align: center;
+}

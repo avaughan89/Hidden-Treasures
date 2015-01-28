@@ -37,3 +37,9 @@ get '/treasures' do
   content_type :json
   treasure.to_json
 end
+
+post '/treasures' do
+  # p params
+  treasure = Treasure.create(title: params[:title], location: params[:location])
+  {title: params[:title], location: params[:location]}.to_json
+end
