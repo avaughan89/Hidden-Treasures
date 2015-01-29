@@ -14,7 +14,6 @@ function initialize(location){
         position: currentLocation,
         map: map
     });
-    // google.maps.event.addListenerOnce(map,'bounds_changed', perfromSearch);
 
 };
 
@@ -27,13 +26,15 @@ function createMarker(title, lat, long){
         map: map,
         icon: image
     });
+    google.maps.event.addListener(marker, 'click', function(){
+        $('.treasure_bro').show().hide(4000);
+    });
 };
 
 
 
 function userMarker(data) {
     event.preventDefault();
-    console.log(data);
     $.ajax({
         url: '/treasures',
         type: 'post',
@@ -45,9 +46,6 @@ function userMarker(data) {
         var location = data.location.split(",");
         var lat = location[0];
         var long = location[1];
-        // console.log(title);
-        // console.log(lat);
-        // console.log(long);
         createMarker(title,lat,long);
     })
 };
@@ -70,8 +68,28 @@ $(document).ready(function () {
     navigator.geolocation.getCurrentPosition(initialize);
     $(".new_treasure").on("submit", function(){
         // event.preventDefault();
-    userMarker($(this).serialize());
-  });
+        userMarker($(this).serialize());
+    });
 
+    setTimeout(function(){
+        $.ajax({
+            url: '/treasures',
+            type: 'get',
+            dataType: 'json'
+        }).done(function(data){
+            for (var i = 0; i < data.length; i++){
+                var title = data[i].title;
+                // console.log(title);
+                var location = data[i].location.split(",");
+
+                var lat = location[0];
+                // console.log(lat);
+                var long = location[1];
+                // console.log(long);
+                createMarker(title,lat,long)
+            };
+        })
+
+    }, 5000)
 
 });

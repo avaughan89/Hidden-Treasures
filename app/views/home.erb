@@ -3,9 +3,9 @@
     <div id="container">
       <div id="topnav">
         <form id="logout" action="/logout" method="post">
-            <input name="_method" type="hidden" value="delete" />
-            <input type="submit" value="Sign Out">
-          </form>
+          <input name="_method" type="hidden" value="delete" />
+          <input type="submit" value="Sign Out">
+        </form>
       </div>
     </div>
   </div>
@@ -15,17 +15,20 @@
   <div class='row'>
     <div class='three columns' id='left_form'>
       <div class='creator_marker'>
-      <form method="post" class="new_treasure" action="/treasures">
-        <ul id='new_marker'>
-         <li><input type='text' name='title' placeholder='Treasure Description'></li>
-          <li><input type='text' name='location' placeholder='Latitude and Longitude'></li>
-          <li><input type='submit' value='Enter a location' id='submit_marker'></li>
-        </ul>
-      </form>
-    </div>
-    </div>
-    <div class='nine columns'>
-      <div id="map_canvas"></div>
-    </div>
+        <form method="post" class="new_treasure" action="/treasures">
+          <ul id='new_marker'>
+           <li><input type='text' name='title' placeholder='Treasure Description'></li>
+           <li><input type='text' name='location' placeholder='Latitude and Longitude'></li>
+           <li><input type='submit' value='Enter a location' id='submit_marker'></li>
+         </ul>
+       </form>
+     </div>
+   </div>
+   <div class="treasure_bro">
+    <img src="http://media.giphy.com/media/XbAXcmBir0ncc/giphy.gif">
+   </div>
+   <div class='nine columns'>
+    <div id="map_canvas"></div>
   </div>
+</div>
 </div>

@@ -281,3 +281,14 @@ form.signin .remb .remember {
     filter: glow(color=#EEEE00,strength=3);
 
 }
+
+.treasure_bro {
+    display: none;
+    position: absolute;
+    left: 1em;
+    top: 30em;
+}
+
+.treasure_bro img {
+    width: 50%;
+}
