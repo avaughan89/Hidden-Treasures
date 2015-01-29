@@ -269,3 +269,15 @@ form.signin .remb .remember {
     top: 10em;
     text-align: center;
 }
+
+#treasure_title {
+    transition: all 1.5s ease-in-out;
+}
+
+#treasure_title:hover {
+    transform: scale(1.5);
+    color:#F4F065;
+    text-shadow: #EEEE00 0 0 10px, #FF0000 5px 5px 5px;
+    filter: glow(color=#EEEE00,strength=3);
+
+}
